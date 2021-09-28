@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 
-const Formulario = () => {
+const Formulario = ({ guardarBusquedaLetra }) => {
   const [busqueda, guardarBusqueda] = useState({
     artista: "",
     cancion: "",
@@ -16,7 +16,6 @@ const Formulario = () => {
 
   const buscarInformacion = (e) => {
     e.preventDefault();
-
     if (artista.trim() === "" || cancion.trim() === "") {
       guardarError(true);
       return;
@@ -24,10 +23,8 @@ const Formulario = () => {
     guardarError(false);
 
     //Todo bien, pasar al componente princial
-    guardarBusqueda(busqueda);
+    guardarBusquedaLetra(busqueda);
   };
-
-  console.log(busqueda);
 
   return (
     <div className="bg-info">
